@@ -5,7 +5,7 @@ Summary:	autodns - configuration of secondary DNS via email
 Summary(pl):	autodns - konfiguracja secondary DNS poprzez e-mail
 Name:		autodns
 Version:	0.0.6
-Release:	1.2
+Release:	1.3
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://www.earth.li/projectpurple/files/%{name}-%{version}.tar.gz
@@ -47,7 +47,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ACKNOWLEDGEMENTS HISTORY README TODO
 %config(noreplace) %verify(not size mtime md5) /etc/%{name}.conf
-%attr(771,root,named) %dir /etc/%{name}
+%attr(751,root,named) %dir /etc/%{name}
 %attr(640,root,named) %config(noreplace) %verify(not size mtime md5) /etc/%{name}/autodns.users
 %attr(755,root,root) %{_bindir}/*
 %attr(771,root,named) %dir /var/lib/%{name}
