@@ -38,8 +38,8 @@
 +			$ccreply=$1;
 +		# FIXME:
 +		# make possible to use multiline entries:
-+		} elsif (/^\@cfgfiles=(.+);$/) {
-+			@cfgfiles=$1;
++		} elsif (/^\$cfgfiles="([^"]+)";$/) {
++			@cfgfiles=($1);
 +		} elsif (/^\$conffile="([^"]+)";$/) {
 +			$conffile=$1;
 +		} elsif (/^\$usersfile="([^"]+)";$/) {
