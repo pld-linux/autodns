@@ -8,6 +8,7 @@ Group:		Applications/Networking
 Source0:	http://www.earth.li/projectpurple/files/%{name}-%{version}.tar.gz
 # Source0-md5:  03c6a8a4d6447b99ed18d40c627733d3
 URL:		http://www.earth.li/projectpurple/progs/autodns.html
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
