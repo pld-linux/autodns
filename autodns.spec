@@ -1,5 +1,5 @@
-Summary:	autodns - configuration of secundary DNS via email
-Summary(pl):	autodns - konfiguracja secundary DNS poprzez email
+Summary:	autodns - configuration of secondary DNS via email
+Summary(pl):	autodns - konfiguracja secondary DNS poprzez e-mail
 Name:		autodns
 Version:	0.0.6
 Release:	1
@@ -16,7 +16,7 @@ email. It's used by the author in conjuction with BIND but with
 minimal effort should work with any DNS server.
 
 %description -l pl
-autodns umo¿liwia ³atw± konfiguracjê secundary DNSa poprzez email.
+autodns umo¿liwia ³atw± konfiguracjê secondary DNS-a poprzez e-mail.
 Jest u¿ywany przez autora w po³±czeniu z BINDem, ale z minimalnym
 trudem powinien pracowaæ z ka¿dym serwerem DNS.
 
