@@ -17,8 +17,8 @@ minimal effort should work with any DNS server.
 
 %description -l pl
 autodns umo¿liwia ³atw± konfiguracjê secondary DNS-a poprzez e-mail.
-Jest u¿ywany przez autora w po³±czeniu z BINDem, ale z minimalnym
-trudem powinien pracowaæ z ka¿dym serwerem DNS.
+Jest u¿ywany przez autora w po³±czeniu z BINDem, ale minimalny wk³ad
+pracy powinien umo¿liwiæ jego wspó³pracê z dowolnym serwerem DNS.
 
 %prep
 %setup -q
