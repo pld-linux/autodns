@@ -11,8 +11,8 @@ URL:		http://www.earth.li/projectpurple/progs/autodns.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-autodns is an easy way to enable configuration of secundary DNS via
-email. It's used by the author in conjuction with BIND but with
+autodns is an easy way to enable configuration of secondary DNS via
+email. It's used by the author in conjunction with BIND, but with
 minimal effort should work with any DNS server.
 
 %description -l pl
