@@ -1,8 +1,11 @@
+# TODO:
+# - fix add-dns.pl - remove hardcoded config entries
+%include	/usr/lib/rpm/macros.perl
 Summary:	autodns - configuration of secondary DNS via email
 Summary(pl):	autodns - konfiguracja secondary DNS poprzez e-mail
 Name:		autodns
 Version:	0.0.6
-Release:	1.1
+Release:	1.2
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://www.earth.li/projectpurple/files/%{name}-%{version}.tar.gz
@@ -10,6 +13,7 @@ Source0:	http://www.earth.li/projectpurple/files/%{name}-%{version}.tar.gz
 Source1:	%{name}.conf
 Patch0:		%{name}-config.patch
 URL:		http://www.earth.li/projectpurple/progs/autodns.html
+Requires:	bind
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -43,7 +47,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ACKNOWLEDGEMENTS HISTORY README TODO
 %config(noreplace) %verify(not size mtime md5) /etc/%{name}.conf
-%attr(751,root,named) %dir /etc/%{name}
-%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) /etc/%{name}/autodns.users
+%attr(771,root,named) %dir /etc/%{name}
+%attr(640,root,named) %config(noreplace) %verify(not size mtime md5) /etc/%{name}/autodns.users
 %attr(755,root,root) %{_bindir}/*
-%attr(751,root,named) %dir /var/lib/%{name}
+%attr(771,root,named) %dir /var/lib/%{name}
