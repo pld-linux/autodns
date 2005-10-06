@@ -4,12 +4,12 @@
 Summary:	autodns - configuration of secondary DNS via email
 Summary(pl):	autodns - konfiguracja secondary DNS poprzez e-mail
 Name:		autodns
-Version:	0.0.6
-Release:	1.3
+Version:	0.0.8
+Release:	0.9
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://www.earth.li/projectpurple/files/%{name}-%{version}.tar.gz
-# Source0-md5:  03c6a8a4d6447b99ed18d40c627733d3
+# Source0-md5:	2e86ed357f6ef6bf82be1e024d7a8f38
 Source1:	%{name}.conf
 Patch0:		%{name}-config.patch
 URL:		http://www.earth.li/projectpurple/progs/autodns.html
@@ -38,15 +38,22 @@ install -d $RPM_BUILD_ROOT{%{_bindir},/var/lib/%{name},/etc/%{name}}
 install autodns.pl contrib/add-dns.pl $RPM_BUILD_ROOT%{_bindir}
 install autodns.users $RPM_BUILD_ROOT/etc/%{name}
 
-install %{SOURCE1} $RPM_BUILD_ROOT/etc/%{name}.conf
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/%{name}/%{name}.conf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%triggerpostun -- autodns < 0.0.8
+echo "Upgrading from version < 0.0.8"
+if [ -e /etc/autodns.conf.rpmsave ]; then
+        cp /etc/autodns/autodns.conf /etc/autodns/autodns.conf.rpmnew
+        cp /etc/autodns.conf.rpmsave /etc/autodns/autodns.conf
+fi
+
 %files
 %defattr(644,root,root,755)
 %doc ACKNOWLEDGEMENTS HISTORY README TODO
-%config(noreplace) %verify(not size mtime md5) /etc/%{name}.conf
+%config(noreplace) %verify(not size mtime md5) /etc/%{name}/%{name}.conf
 %attr(751,root,named) %dir /etc/%{name}
 %attr(640,root,named) %config(noreplace) %verify(not size mtime md5) /etc/%{name}/autodns.users
 %attr(755,root,root) %{_bindir}/*
