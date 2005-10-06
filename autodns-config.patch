@@ -1,70 +1,11 @@
---- ./autodns.pl.org	2005-02-12 22:29:00.211821472 +0100
-+++ ./autodns.pl	2005-02-12 22:29:08.709529624 +0100
-@@ -17,12 +17,15 @@
- my ($from, $subject, $gpguser, $gpggood, $usersfile, $lockfile, $priv);
- my ($user, $server, $inprocess, $delcount, $addcount, $reload_command);
- my ($domain, @MAIL, @GPGERROR, @COMMANDS, %zones);
--my ($me, $ccreply, $conffile, $domainlistroot, @cfgfiles, $VERSION);
-+my ($me, $ccreply, $conffile, $configfile, $domainlistroot, @cfgfiles, $VERSION);
- 
- $VERSION="0.0.6";
- 
-+# Location of config file for autodns:
-+$configfile="/etc/autodns.conf";
-+
+--- ./autodns.pl.org	2005-04-08 13:51:13.000000000 +0000
++++ ./autodns.pl	2005-10-06 19:03:15.000000000 +0000
+@@ -26,7 +26,7 @@
  #
--# Local configuration here (until it gets moved to a config file).
-+# Defaults - these are used if no config is found.
+ # Load our config
  #
- # These are sort of suitable for a Debian setup.
- #
-@@ -58,6 +61,40 @@
- ### using BIND). This statement might even be true now - let me know if not.
- ###
- 
-+# Read config:
-+# 
-+
-+sub getconfig {
-+	my ($configfile) = @_;
-+	
-+	open (AUTODNSCONF, "< $configfile") or
-+		&fatalerror("Can't open $configfile, using defaults");
-+	
-+	while (<AUTODNSCONF>) {
-+		if (/^\$mailfrom="([^"]+)";$/) {
-+			$me=$1;
-+		} elsif (/^\$ccreply="([^"]+)";$/) {
-+			$ccreply=$1;
-+		# FIXME:
-+		# make possible to use multiline entries:
-+		} elsif (/^\$cfgfiles="([^"]+)";$/) {
-+			@cfgfiles=($1);
-+		} elsif (/^\$conffile="([^"]+)";$/) {
-+			$conffile=$1;
-+		} elsif (/^\$usersfile="([^"]+)";$/) {
-+			$usersfile=$1;
-+		} elsif (/^\$domainlistroot="([^"]+)";$/) {
-+			$domainlistroot=$1;
-+		} elsif (/^\$lockfile="([^"]+)";$/) {
-+			$lockfile=$1;
-+		} elsif (/^\$reload_command="([^"]+)";$/) {
-+			$reload_command=$1;
-+		}
-+	}
-+	
-+	close AUTODNSCONF;
-+}
-+
- #
- # Try to figure out what zones we currently know about by parsing config
- # files. Sets the item in %zones to 1 for each zone it finds.
-@@ -167,6 +204,8 @@
- 	return ($user, $priviledge, $server);
- }
- 
-+getconfig($configfile);
-+
- $delcount=$addcount=$inprocess=0;
- 
- # Read in the mail from stdin.
+-my $file = '/etc/bind/autodns.conf';
++my $file = '/etc/autodns/autodns.conf';
+ unless (my $ret = do $file) {
+ 	warn "Couldn't parse $file\n" if $@;
+ 	warn "Couldn't do $file\n" unless defined $ret;
