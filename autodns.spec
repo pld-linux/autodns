@@ -53,8 +53,8 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc ACKNOWLEDGEMENTS HISTORY README TODO
-%config(noreplace) %verify(not size mtime md5) /etc/%{name}/%{name}.conf
 %attr(751,root,named) %dir /etc/%{name}
-%attr(640,root,named) %config(noreplace) %verify(not size mtime md5) /etc/%{name}/autodns.users
+%config(noreplace) %verify(not md5 mtime size) /etc/%{name}/%{name}.conf
+%attr(640,root,named) %config(noreplace) %verify(not md5 mtime size) /etc/%{name}/autodns.users
 %attr(755,root,root) %{_bindir}/*
 %attr(771,root,named) %dir /var/lib/%{name}
