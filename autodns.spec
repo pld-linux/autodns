@@ -2,7 +2,7 @@
 # - fix add-dns.pl - remove hardcoded config entries
 %include	/usr/lib/rpm/macros.perl
 Summary:	autodns - configuration of secondary DNS via email
-Summary(pl):	autodns - konfiguracja secondary DNS poprzez e-mail
+Summary(pl.UTF-8):   autodns - konfiguracja secondary DNS poprzez e-mail
 Name:		autodns
 Version:	0.0.8
 Release:	0.9
@@ -22,10 +22,10 @@ autodns is an easy way to enable configuration of secondary DNS via
 email. It's used by the author in conjunction with BIND, but with
 minimal effort should work with any DNS server.
 
-%description -l pl
-autodns umo¿liwia ³atw± konfiguracjê secondary DNS-a poprzez e-mail.
-Jest u¿ywany przez autora w po³±czeniu z BINDem, ale minimalny wk³ad
-pracy powinien umo¿liwiæ jego wspó³pracê z dowolnym serwerem DNS.
+%description -l pl.UTF-8
+autodns umoÅ¼liwia Å‚atwÄ… konfiguracjÄ™ secondary DNS-a poprzez e-mail.
+Jest uÅ¼ywany przez autora w poÅ‚Ä…czeniu z BINDem, ale minimalny wkÅ‚ad
+pracy powinien umoÅ¼liwiÄ‡ jego wspÃ³Å‚pracÄ™ z dowolnym serwerem DNS.
 
 %prep
 %setup -q
