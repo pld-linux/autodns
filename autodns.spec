@@ -2,7 +2,7 @@
 # - fix add-dns.pl - remove hardcoded config entries
 %include	/usr/lib/rpm/macros.perl
 Summary:	autodns - configuration of secondary DNS via email
-Summary(pl.UTF-8):   autodns - konfiguracja secondary DNS poprzez e-mail
+Summary(pl.UTF-8):	autodns - konfiguracja secondary DNS poprzez e-mail
 Name:		autodns
 Version:	0.0.8
 Release:	0.9
