@@ -4,12 +4,12 @@
 Summary:	autodns - configuration of secondary DNS via email
 Summary(pl.UTF-8):	autodns - konfiguracja secondary DNS poprzez e-mail
 Name:		autodns
-Version:	0.0.8
-Release:	0.9
-License:	GPL
+Version:	1.0.0
+Release:	1
+License:	GPL v2
 Group:		Applications/Networking
 Source0:	http://www.earth.li/projectpurple/files/%{name}-%{version}.tar.gz
-# Source0-md5:	2e86ed357f6ef6bf82be1e024d7a8f38
+# Source0-md5:	d5a87531de37a74c0dcb16f2a53aae1c
 Source1:	%{name}.conf
 Patch0:		%{name}-config.patch
 URL:		http://www.earth.li/projectpurple/progs/autodns.html
